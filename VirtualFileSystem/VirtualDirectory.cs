@@ -352,11 +352,6 @@ namespace VirtualFileSystem
 
                 internal void RenameItem(VirtualItem virtualItem, string newName)
                 {
-                        if (!ValidName(newName))
-                        {
-                                throw new ArgumentException("newName invalid");
-                        }
-
                         var dataWriter = new DataWriter();
 
                         foreach (VirtualItem item in ReadAllItems())
@@ -395,11 +390,6 @@ namespace VirtualFileSystem
                         }
 
                         string[] splittedPath = relativePath.Split(DirectorySeparator);
-
-                        if (splittedPath.Length < 0)
-                        {
-                                throw new ArgumentException("relativePath invalid");
-                        }
 
                         if (!splittedPath.All(ValidName))
                         {

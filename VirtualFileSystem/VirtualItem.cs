@@ -58,6 +58,8 @@ namespace VirtualFileSystem
                 /// <returns>whether the name can be used as a file/directory name.</returns>
                 internal static bool ValidName(string name)
                 {
+                        if (string.IsNullOrEmpty(name)) return false;
+
                         return Path.GetInvalidFileNameChars().All(character => !name.ToCharArray().Any(c => c == character));
                 }
 

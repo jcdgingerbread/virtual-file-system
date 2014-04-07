@@ -91,6 +91,11 @@ namespace VirtualFileSystem
                 {
                         const int COPY_CHUNK_SIZE = 2048;
 
+                        if (!ValidName(newName))
+                        {
+                                throw new ArgumentException("newName invalid");
+                        }
+
                         if (targetDirectory == null)
                         {
                                 throw new ArgumentException("targetDirectory must not be null");
