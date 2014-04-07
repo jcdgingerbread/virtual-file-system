@@ -41,6 +41,8 @@
     <Compile Include="Exceptions\RootDeletionException.cs" />
     <Compile Include="Exceptions\RootLocationException.cs" />
     <Compile Include="Exceptions\ItemNameInUseException.cs" />
+    <Compile Include="Tests\MoveTest.cs" />
+    <Compile Include="Tests\DiskDeleteTest.cs" />
     <Compile Include="Tests\RenameTest.cs" />
     <Compile Include="Tests\RelativeItemTest.cs" />
     <Compile Include="Tests\CopyTest.cs" />

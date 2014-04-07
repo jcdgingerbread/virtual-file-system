@@ -113,7 +113,7 @@ namespace VirtualFileSystem
 
                         if (ParentDirectory == null)
                         {
-                                throw new NotImplementedException("cannot move root");
+                                throw new ArgumentException("cannot move root");
                         }
 
                         ParentDirectory.RemoveItem(this);

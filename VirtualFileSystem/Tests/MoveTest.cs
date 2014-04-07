@@ -7,20 +7,19 @@ namespace VirtualFileSystem.Tests
 {
         [TestFixture]
         [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses")]
-        internal class RenameTest
+        internal class MoveTest
         {
                 [Test]
                 [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-                public static void Rename()
+                public static void Move()
                 {
                         const string FILE_NAME = "test.jcd";
-                        const string RENAMED_NAME = "renamed_item";
 
                         VirtualDisk vd = VirtualDisk.Create(FILE_NAME, 1024 * 1024, 100);
 
                         VirtualDirectory root = vd.RootDirectory;
 
-                        root.AddDirectory("dir1");
+                        VirtualDirectory dir1 = root.AddDirectory("dir1");
                         root.AddDirectory("dir2");
                         root.AddDirectory("dir3");
                         root.AddFile("file1");
@@ -28,19 +27,18 @@ namespace VirtualFileSystem.Tests
                         dir4.AddFile("file2");
                         dir4.AddDirectory("dir5");
 
-                        dir4.Rename(RENAMED_NAME);
+                        dir4.Move(dir1);
 
-                        Assert.True(dir4.Name.Equals(RENAMED_NAME));
-                        Assert.True(root.ReadAllItems().Any(item => item.Name.Equals(dir4.Name)));
+                        Assert.True(root.ReadAllItems().All(item => !item.Name.Equals(dir4.Name)));
+                        Assert.True(dir1.ReadAllItems().Any(item => item.Name.Equals(dir4.Name)));
                 }
 
                 [Test]
                 [ExpectedException(typeof (ArgumentException))]
                 [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-                public static void RenameInvalid()
+                public static void MoveInvalid()
                 {
                         const string FILE_NAME = "test.jcd";
-                        const string INVALID_RENAMED_NAME = "34/*54'^^`?";
 
                         VirtualDisk vd = VirtualDisk.Create(FILE_NAME, 1024 * 1024, 100);
 
@@ -54,7 +52,29 @@ namespace VirtualFileSystem.Tests
                         dir4.AddFile("file2");
                         dir4.AddDirectory("dir5");
 
-                        dir4.Rename(INVALID_RENAMED_NAME);
+                        dir4.Move(null);
+                }
+
+                [Test]
+                [ExpectedException(typeof (ArgumentException))]
+                [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+                public static void MoveInvalidRoot()
+                {
+                        const string FILE_NAME = "test.jcd";
+
+                        VirtualDisk vd = VirtualDisk.Create(FILE_NAME, 1024 * 1024, 100);
+
+                        VirtualDirectory root = vd.RootDirectory;
+
+                        root.AddDirectory("dir1");
+                        root.AddDirectory("dir2");
+                        root.AddDirectory("dir3");
+                        root.AddFile("file1");
+                        VirtualDirectory dir4 = root.AddDirectory("dir4");
+                        dir4.AddFile("file2");
+                        dir4.AddDirectory("dir5");
+
+                        root.Move(dir4);
                 }
         }
 }
