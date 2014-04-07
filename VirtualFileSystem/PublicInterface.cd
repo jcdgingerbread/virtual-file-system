@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VirtualFileSystem.VirtualDirectory">
+    <Position X="8.75" Y="1.5" Width="1.75" />
+    <Members>
+      <Method Name="AddItem" Hidden="true" />
+      <Method Name="CopyInternal" Hidden="true" />
+      <Method Name="CreateNewFile" Hidden="true" />
+      <Method Name="DeleteItem" Hidden="true" />
+      <Method Name="DeserializeDirectoryItem" Hidden="true" />
+      <Method Name="RemoveItem" Hidden="true" />
+      <Method Name="RenameItem" Hidden="true" />
+      <Method Name="SerializeItem" Hidden="true" />
+      <Method Name="VirtualDirectory" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="VirtualFileSystem.VirtualDirectory.ItemType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>VirtualDirectory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAIgAAAAAAAAAAIAAwEABAAAgiEAAAgEAAEABACBAAA=</HashCode>
+      <FileName>VirtualDirectory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualFileSystem.VirtualDisk">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="_containerFile" Hidden="true" />
+      <Field Name="ROOT_DIRECTORY_FILE_NUMBER" Hidden="true" />
+      <Field Name="ROOT_DIRECTORY_NAME" Hidden="true" />
+      <Method Name="VirtualDisk" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAEJAAAAAEAAAAAgAEAAEUAAAAAAACAAAA=</HashCode>
+      <FileName>VirtualDisk.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RootDirectory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="VirtualFileSystem.VirtualFile">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <Members>
+      <Method Name="ImportContent" Hidden="true" />
+      <Method Name="VirtualFile" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAABAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VirtualFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VirtualFileSystem.VirtualItem">
+    <Position X="10" Y="6" Width="1.5" />
+    <Members>
+      <Property Name="ContainerFile" Hidden="true" />
+      <Property Name="FileNumber" Hidden="true" />
+      <Method Name="GetFileStream" Hidden="true" />
+      <Method Name="VirtualItem" Hidden="true" />
+    </Members>
+    <AssociationLine Name="ParentDirectory" Type="VirtualFileSystem.VirtualDirectory" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.625" />
+        <Point X="8.375" Y="6.625" />
+        <Point X="8.375" Y="2.938" />
+        <Point X="8.75" Y="2.938" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.2" Y="-3.598" Height="0.182" Width="1.149" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAIIAAAAABAAAFAQAAgEAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>VirtualItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ParentDirectory" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

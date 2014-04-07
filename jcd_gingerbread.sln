@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{436E88DB-3175-4A85-8F8F-21253F7F75EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualFileSystem", "VirtualFileSystem\VirtualFileSystem.csproj", "{3F463370-A116-4433-821C-87714FA02397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnixStyleContainerFileFramework", "UnixStyleContainerFileFramework\UnixStyleContainerFileFramework.csproj", "{99E2A390-7A4C-4814-8A6A-BF5C4F10FC15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{436E88DB-3175-4A85-8F8F-21253F7F75EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436E88DB-3175-4A85-8F8F-21253F7F75EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436E88DB-3175-4A85-8F8F-21253F7F75EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436E88DB-3175-4A85-8F8F-21253F7F75EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F463370-A116-4433-821C-87714FA02397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F463370-A116-4433-821C-87714FA02397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F463370-A116-4433-821C-87714FA02397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F463370-A116-4433-821C-87714FA02397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E2A390-7A4C-4814-8A6A-BF5C4F10FC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E2A390-7A4C-4814-8A6A-BF5C4F10FC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E2A390-7A4C-4814-8A6A-BF5C4F10FC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E2A390-7A4C-4814-8A6A-BF5C4F10FC15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
