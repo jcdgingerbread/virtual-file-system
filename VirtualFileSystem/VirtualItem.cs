@@ -95,6 +95,8 @@ namespace VirtualFileSystem
                         if (ParentDirectory != null)
                         {
                                 ParentDirectory.RenameItem(this, newName);
+
+                                Name = newName;
                         }
                 }
 

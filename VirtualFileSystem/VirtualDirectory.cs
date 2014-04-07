@@ -371,6 +371,13 @@ namespace VirtualFileSystem
 
                         FileStream stream = GetFileStream();
                         byte[] data = dataWriter.GetData();
+
+                        if (stream.Length < data.Length + 8)
+                        {
+                                ContainerFile.ChangeFileSize(FileNumber, (uint) (data.Length + 8));
+                        }
+
+                        stream = GetFileStream();
                         stream.Write(BitConverter.GetBytes((ulong) data.Length));
                         stream.Write(data);
                 }
@@ -379,7 +386,7 @@ namespace VirtualFileSystem
                 ///         returns a virtual item given a relative path in the virtual disks directory hierarchy starting from this directory.
                 /// </summary>
                 /// <param name="relativePath">the relative path.</param>
-                /// <returns>the last item in the relative path.</returns>
+                /// <returns>the last item in the relative path or null if the path does not refer to an item.</returns>
                 public VirtualItem GetRelativeItem(string relativePath)
                 {
                         if (relativePath == null)

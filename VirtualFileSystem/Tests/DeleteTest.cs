@@ -6,6 +6,7 @@ using VirtualFileSystem.Exceptions;
 namespace VirtualFileSystem.Tests
 {
         [TestFixture]
+        [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses")]
         internal class DeleteTest
         {
                 [Test]
