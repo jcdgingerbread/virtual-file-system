@@ -14,16 +14,17 @@ namespace VirtualFileSystem.Tests
                 {
                         const string FILE_NAME = "test.jcd";
                         const string FILE_TO_IMPORT = "SampleFile.txt";
-                        const string EXPORTED_DIRECTORY = "exported\\";
+                        const string EXPORTED_DIRECTORY = "exported";
+                        string exportedFileName = EXPORTED_DIRECTORY + Path.DirectorySeparatorChar + FILE_TO_IMPORT;
 
                         if (!Directory.Exists(EXPORTED_DIRECTORY))
                         {
                                 Directory.CreateDirectory(EXPORTED_DIRECTORY);
                         }
 
-                        if (File.Exists(EXPORTED_DIRECTORY + FILE_TO_IMPORT))
+                        if (File.Exists(exportedFileName))
                         {
-                                File.Delete(EXPORTED_DIRECTORY + FILE_TO_IMPORT);
+                                File.Delete(exportedFileName);
                         }
 
                         VirtualDisk vd = VirtualDisk.Create(FILE_NAME, 2024 * 1024 * 1024, 100);
@@ -32,7 +33,7 @@ namespace VirtualFileSystem.Tests
 
                         VirtualFile importedFile = root.ImportFile(FILE_TO_IMPORT);
 
-                        importedFile.Export(EXPORTED_DIRECTORY);
+                        importedFile.Export(exportedFileName);
 
                         vd.Close();
                 }
